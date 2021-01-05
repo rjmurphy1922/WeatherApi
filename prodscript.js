@@ -3,10 +3,6 @@ $(document).ready(function(){
 
     var citySearchEl = $("#citySearch")
     var myButton = $("#citySubmit")
-    // let lat = response.coord.lat
-    // console.log(lat)
-    // let long = response.coord.lon
-    // console.log(long)
 
     
     myButton.on("click", function(event) {
@@ -21,12 +17,21 @@ $(document).ready(function(){
     
     })})
 
-       const today = new Date()
-       const tomorrow = new Date(today)
-       tomorrow.setDate(tomorrow.getDate())
+
+
+    //     var date = new Date();
+
+
+    
+
+    // const dates = [1,2,3,4,5]
+
+    //     date.setDate(date.getDate() +dates[0])
+    
+
+    // console.log(date)
        
-    //    dailyweatherArray = [responsetwo.daily[0],responsetwo.daily[1],responsetwo.daily[2],responsetwo.daily[3],responsetwo.daily[4],]
-    //    console.log(dailyweatherArray[2])
+    //    console.log(dateArray[0])
 
 
 
@@ -48,7 +53,41 @@ $(document).ready(function(){
             console.log(lat)
             let long = response.coord.lon
             console.log(long)
+
+            const temptofar = (((response.main.temp-273.15)*1.8)+32).toFixed();
+
+
+            var date = new Date();
+            // const dateArray = [1]
+            
+       
+            // date.setDate(date.getDate() - dateArray[0])s
+            // var newDate = date.substring(date.length - 10);
+            console.log(date)
            
+
+
+            const cityName = $("<h1>").addClass("card-title").text(response.name)
+            const weatherDiv = $("<div>").addClass("card")  
+            const indexColor= $("<div>").addClass("unique")
+     
+            const datetext = $("<p>").text( date )
+            const windData = $("<p>").text("Wind Speed: " + response.wind.speed + "mph")
+            const humidity = $("<p>").text("Humidity: " + response.main.humidity)
+            // console.log(response.main.humidity)
+            const temp = $("<p>").text("Temperature: " + temptofar)
+            // const UV = $("<p>").text("UV Index: " + )
+            const weatherImage = $("<img>").attr("src","https://openweathermap.org/img/w/" + response.weather[0].icon  + ".png")
+
+
+
+            const container = $("<div>").addClass("card-body")
+
+            cityName.append(weatherImage)
+            container.append(cityName,datetext,windData,humidity,temp) 
+            weatherDiv.append(container)
+            $("#weatherBox").append(weatherDiv)
+
 
             
 
@@ -80,101 +119,138 @@ $(document).ready(function(){
                 const four = responsetwo.daily[3]
                 const five = responsetwo.daily[4]
 
+                var now = moment()
+                console.log(now)
+
 
                 dailyArray = [one,two,three,four,five]
-                // // testArray= []
-                // // for (i = 0; i < 6; i++) {
-                // //     testArray.push(responseTwo.daily[i])
                 
-                // //   console.log(testArray)
-                // //   }
+                console.log(dailyArray)
 
 
-                // const temptofar = (((responsetwo.daily[0].temp.day-273.15)*1.8)+32).toFixed();
 
-                // console.log(responsetwo)
+
+
+
+
+
+                const temptofar = (((response.main.temp-273.15)*1.8)+32).toFixed();
+
+
+                var date = new Date();
+                // const dateArray = [1]
+                
+           
+                // date.setDate(date.getDate() - dateArray[0])s
+                // var newDate = date.substring(date.length - 10);
+                console.log(date)
+               
+    
+    
+                // const cityName = $("<h1>").addClass("card-title").text(response.name)
+                // const weatherDiv = $("<div>").addClass("card")  
+                // const indexColor= $("<div>").addClass("unique")
+         
+                // const datetext = $("<p>").text("Date: " + date )
+                // const windData = $("<p>").text("Wind Speed: " + response.wind.speed + "mph")
+                // const humidity = $("<p>").text("Humidity: " + response.main.humidity)
+                // const temp = $("<p>").text("Temperature: " + temptofar)
+                // // const UV = $("<p>").text("UV Index: " + )
+                // const weatherImage = $("<img>").attr("src","https://openweathermap.org/img/w/" + response.weather[0].icon  + ".png")
+    
+    
+    
+                // const container = $("<div>").addClass("card-body")
+    
+                // cityName.append(weatherImage)
+                // container.append(cityName,datetext,windData,humidity,temp,indexColor) 
+                // weatherDiv.append(container)
+
+
+
 
                 // const cityName = $("<h1>").addClass("card-title").text(response.name)
                 // const weatherDiv = $("<div>").addClass("card")  
-                // const weatherDivTwo = $("<div>").addClass("card")  
-
-                // const windData = $("<p>").text("Wind Speed: " + dailyArray[0].wind_speed + "mph")
-                // const humidity = $("<p>").text("Humidity: " + dailyArray[0].humidity)
-                // const temp = $("<p>").text("Current Temperature: " + temptofar)
-                // const weatherImage = $("<img>").attr("src","https://openweathermap.org/img/w/" + dailyArray[0].weather[0].icon  + ".png")
-
-                // // const windData = $("<p>").text("Wind Speed: " + dailyArray[0].wind_speed + "mph")
-                // // const humidity = $("<p>").text("Humidity: " + dailyArray[0].humidity)
-                // // const temp = $("<p>").text("Current Temperature: " + temptofar)
-                // // const weatherImage = $("<img>").attr("src","https://openweathermap.org/img/w/" + dailyArray[0].weather[0].icon  + ".png")
+                // const indexColor= $("<div>").addClass("unique")
+         
+                // const datetext = $("<p>").text("Date: " + date )
+                // const windData = $("<p>").text("Wind Speed: " + respon.wind_speed + "mph")
+                // const humidity = $("<p>").text("Humidity: " + dailyArray[i].humidity)
+                // const temp = $("<p>").text("Temperature: " + temptofar)
+                // const UV = $("<p>").text("UV Index: " + dailyArray[i].uvi)
+                // const weatherImage = $("<img>").attr("src","https://openweathermap.org/img/w/" + dailyArray[i].weather[0].icon  + ".png")
 
 
-                // // const tomdate = $("<p>").text("Date: " + today )
 
                 // const container = $("<div>").addClass("card-body")
 
                 // cityName.append(weatherImage)
-                // container.append(cityName,windData,humidity,temp) 
+                // container.append(cityName,datetext,windData,humidity,temp,UV,indexColor) 
                 // weatherDiv.append(container)
-             
-
-
-                // cityName.append(weatherImage)
-                // container.append(cityName,windData,humidity,temp) 
-                // weatherDiv.append(container)
-                // weatherDivTwo.append(container)
 
 
 
-        
-                // $("#weatherBox").append(weatherDiv)
 
-                console.log(dailyArray)
 
-                for (i = 0; i < 5; i++) {
+
+
+                for (i = 0; i <6; i++) {
 
                     const one = responsetwo.daily[0]
                     const two = responsetwo.daily[1]
                     const three = responsetwo.daily[2]
                     const four = responsetwo.daily[3]
                     const five = responsetwo.daily[4]
-    
-    
-                    dailyArray = [one,two,three,four,five]
-                    // testArray= []
-                    // for (i = 0; i < 6; i++) {
-                    //     testArray.push(responseTwo.daily[i])
+
+                    var date = new Date();
+                    const dateArray = [1,2,3,4,5]
                     
-                    //   console.log(testArray)
-                    //   }
+               
+                    date.setDate(date.getDate() +dateArray[i])
+                    // var newDate = date.substring(date.length - 10);
+                    console.log(date)
     
+                    const temptofar = (((dailyArray[i].temp.day-273.15)*1.8)+32).toFixed();
     
-                    const temptofar = (((responsetwo.daily[0].temp.day-273.15)*1.8)+32).toFixed();
-    
-                    // console.log(responsetwo)
+         
     
                     const cityName = $("<h1>").addClass("card-title").text(response.name)
                     const weatherDiv = $("<div>").addClass("card")  
-                    // const weatherDivTwo = $("<div>").addClass("card")  
-    
+                    const indexColor= $("<div>").addClass("unique")
+             
+                    const datetext = $("<p>").text( date )
                     const windData = $("<p>").text("Wind Speed: " + dailyArray[i].wind_speed + "mph")
                     const humidity = $("<p>").text("Humidity: " + dailyArray[i].humidity)
-                    const temp = $("<p>").text("Current Temperature: " + temptofar)
+                    const temp = $("<p>").text("Temperature: " + temptofar)
+                    const UV = $("<p>").text("UV Index: " + dailyArray[i].uvi)
                     const weatherImage = $("<img>").attr("src","https://openweathermap.org/img/w/" + dailyArray[i].weather[0].icon  + ".png")
+
+
+                    // dailyArray[i].uvi)
     
-                    // const windData = $("<p>").text("Wind Speed: " + dailyArray[0].wind_speed + "mph")
-                    // const humidity = $("<p>").text("Humidity: " + dailyArray[0].humidity)
-                    // const temp = $("<p>").text("Current Temperature: " + temptofar)
-                    // const weatherImage = $("<img>").attr("src","https://openweathermap.org/img/w/" + dailyArray[0].weather[0].icon  + ".png")
-    
-    
-                    // const tomdate = $("<p>").text("Date: " + today )
+                        let uvIndex = dailyArray[i].uvi
+
+                        if (uvIndex <=2){
+                            $(".unique").css("background-color","green")
+                        }
+                        else if(uvIndex > 2 && uvIndex < 6 ){
+
+                            $(".unique").css("background-color","yellow")
+                        }
+
+                        else if(uvIndex > 8){
+
+                            $(".unique").css("background-color","red")
+                        }
+
     
                     const container = $("<div>").addClass("card-body")
     
                     cityName.append(weatherImage)
-                    container.append(cityName,windData,humidity,temp) 
+                    container.append(cityName,datetext,windData,humidity,temp,UV,indexColor) 
                     weatherDiv.append(container)
+                    // indexColor.append(UV)
+                
                  
 
                      $("#weatherBox").append(weatherDiv)
@@ -185,7 +261,7 @@ $(document).ready(function(){
         
     
          
-    
             )}})}
+         
 
-  
+   
