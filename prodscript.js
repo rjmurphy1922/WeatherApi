@@ -26,7 +26,7 @@ $(document).ready(function(){
 
     function getlatlong(citySearch){
 
-    var queryURLTwo="http://api.openweathermap.org/data/2.5/weather?q="+citySearch+"&appid=290e571c47f47bfd05f9721ae0497c23"
+    var queryURLTwo="https://api.openweathermap.org/data/2.5/weather?q="+citySearch+"&appid=290e571c47f47bfd05f9721ae0497c23"
 
 
 
