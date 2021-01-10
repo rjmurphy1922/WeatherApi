@@ -12,7 +12,7 @@ WeatherAPI is an application that allows you to get a current and 5 day forecast
 
 https://rjmurphy1922.github.io/WeatherApi/
 
-<img src = repository-open-graph-template (5).png>
+<img src="Screen Shot 2021-01-09 at 11.35.32 AM.png" width="350" title="">
 
 ## Contributors 
 Ryan Murphy
